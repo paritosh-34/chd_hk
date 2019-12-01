@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+</head>
+<body>
+	<a href="/logout">Logout</a>
+        <div class="people">
+            <table>
+                <caption>Tweets</caption>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Profile</th>
+                        <th>Tweet</th>
+                        <th>profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <td>{{ post['_id'] }}</td>
+                        <td>{{ post['profile'] }}</td>
+                        <td>{{ post['tweet'] }}</td>
+                        <td><a href="/profile/{{ post['_id'] }}">profile pic</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+</body>
+<script src="static/js/home.js"></script>
+</html>
