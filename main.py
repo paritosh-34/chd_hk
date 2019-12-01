@@ -44,13 +44,8 @@ def logout():
 def post():
     if request.method == 'POST':
         content = request.form
-        print(content)
-        print(type(content))
-        # temp = content['temp']
         profile = content['username']
         msg = content['tweet']
-        img = content['image']
-        print(profile, msg, "\n............\n")
         # print(img)
         # image = Image.open(io.BytesIO(img))
         # image.save("./")
@@ -59,7 +54,7 @@ def post():
         # if 'profile_image' in request.files:
         #     profile_image = request.files['profile_image']
         #     mongo.save_file(profile_image.filename, profile_image)
-        #     mongo.db.twits.insert({'profile': profile, 'tweet': msg, 'profile_img': profile_image.filename})
+        mongo.db.twits.insert({'profile': profile, 'tweet': msg})
 
         return 'Done!'
 
